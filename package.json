@@ -1,0 +1,15 @@
+{
+  "name": "fealight-patterns",
+  "version": "1.0.0",
+  "description": "patterns for technology",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "pattern",
+    "fealight"
+  ],
+  "author": "chenzehui",
+  "license": "MIT"
+}
