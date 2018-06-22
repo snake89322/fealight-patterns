@@ -18,7 +18,7 @@ function cssChunks ({config}) {
 
 function htmlChunks ({entries, config}) {
   Object.keys(entries).forEach( (name) => {
-    const htmlFields = entries[name].replace('.js', '.html')
+    const htmlFields = entries[name][0].replace('.js', '.html')
     // 
     // 每个页面生成一个html
     // -----------------------------------------------------------------------------

@@ -1,13 +1,20 @@
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 
 const jsRule = {
-  test: /\.js[x]?$/,
+  test: /\.(js|jsx)$/,
   exclude: /(node_modules)/,
   use: [
     {
       loader: 'babel-loader',
       options: {
-        presets: ['env', 'react']
+        presets: ['env', 'react'],
+        plugins: ['react-hot-loader/babel'],
+        // 
+        // This is a feature of `babel-loader` for webpack (not Babel itself).
+        // It enables caching results in ./node_modules/.cache/babel-loader/
+        // directory for faster rebuilds.
+        // -----------------------------------------------------------------------------
+        cacheDirectory: true,
       }
     }
   ]

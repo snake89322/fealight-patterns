@@ -20,7 +20,7 @@ export default function (opts) {
     // 
     // 使用正则实现 replace all 效果
     // -----------------------------------------------------------------------------
-    entries[ _name.replace(new RegExp(_fields, 'g'), '') ] = filepath
+    entries[ _name.replace(new RegExp(_fields, 'g'), '') ] = [filepath, 'webpack-hot-middleware/client']
   })
 
   return entries

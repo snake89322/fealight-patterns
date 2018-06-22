@@ -1,15 +1,22 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 
+import { AppContainer, hot } from 'react-hot-loader'
+
 function Root () {
-  return <h1>test42</h1>
+  return <h1>2123122</h1>
 }
 
+var App = hot(module)(Root)
+
 ReactDOM.render(
-  <Root />,
+  <AppContainer>
+    <App />
+  </AppContainer>
+  ,
   document.getElementById('root')
 )
 
-if (module.hot) {  
-  module.hot.accept();
- }
+// if (module.hot) {  
+//   module.hot.accept();
+// }
