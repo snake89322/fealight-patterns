@@ -8,7 +8,7 @@
     "url": "git@github.com:snake89322/fealight-patterns.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "dev": "export NODE_ENV=development && npx babel-node server.js"
   },
   "keywords": [
@@ -20,15 +20,22 @@
   "devDependencies": {
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^0.28.11",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "html-webpack-plugin": "^3.2.0",
+    "jest": "^23.2.0",
     "koa": "^2.5.1",
     "koa-static": "^5.0.0",
+    "koa2-cors": "^2.0.5",
+    "node-sass": "^4.9.0",
     "lodash": "^4.17.10",
     "react-hot-loader": "^4.3.3",
     "sass-loader": "^7.0.3",
@@ -41,5 +48,10 @@
   "dependencies": {
     "react": "^16.4.1",
     "react-dom": "^16.4.1"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
+    }
   }
 }

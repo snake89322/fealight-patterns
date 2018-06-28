@@ -1,4 +1,5 @@
 import Koa from 'koa'
+import cors from 'koa2-cors'
 import serve from 'koa-static'
 import stream from 'stream'
 
@@ -8,8 +9,8 @@ import webpackHot from 'webpack-hot-middleware'
 import webpackConfig from './webpack.config.babel'
 
 const app = new Koa()
-const webpack = require("webpack");
-const compiler = webpack(webpackConfig);
+const webpack = require("webpack")
+const compiler = webpack(webpackConfig)
 
 // devMiddleware.js
 const devMiddleware = (compiler, opts) => {
@@ -47,6 +48,8 @@ const hotMiddleware = (compiler, opts) => {
   }
 }
 
+app.use(cors())
+
 // webpack-dev-middleware logger
 app.use(devMiddleware(compiler, {
   logLevel: 'warn',
@@ -55,9 +58,12 @@ app.use(hotMiddleware(compiler, {}));
 
 app.use(serve(__dirname + "/dist/", {extensions: ['html']}));
 
-app.listen(3000, () => {
-  console.log('app listen at 3000')
-});
+let server = app.listen(3000, '0.0.0.0', () => {
+  let host = server.address().address
+  let port = server.address().port
+
+  console.log('Listening at http://%s:%s', host, port)
+})
 
 // response
 

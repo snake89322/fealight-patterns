@@ -8,7 +8,7 @@ const jsRule = {
       loader: 'babel-loader',
       options: {
         presets: ['env', 'react'],
-        plugins: ['react-hot-loader/babel'],
+        plugins: ['react-hot-loader/babel', 'transform-decorators-legacy'],
         // 
         // This is a feature of `babel-loader` for webpack (not Babel itself).
         // It enables caching results in ./node_modules/.cache/babel-loader/
@@ -30,7 +30,15 @@ const sassRule = {
   use: ExtractTextPlugin.extract({
     fallback: 'style-loader',
     use: [
-      'css-loader?minimize&modules&importLoaders=2&localIdentName=[name]__[local]___[contenthash:base64:5]', 
+      {
+        loader: 'css-loader',
+        options: {
+          minimize: true,
+          modules: true,
+          importLoaders: 2,
+          localIdentName: '[path][name]__[local]--[hash:base64:8]'
+        }
+      },
       'sass-loader?sourceMap'
     ]
   })
